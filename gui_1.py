@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'gui_1.ui'
 #
-# Created: Fri Jun 16 18:50:52 2017
+# Created: Sat Jun 17 01:23:31 2017
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,22 +30,22 @@ class Ui_MainWindow(object):
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.figure2 = GraphicsView(self.centralwidget)
-        self.figure2.setGeometry(QtCore.QRect(340, 40, 231, 201))
+        self.figure2.setGeometry(QtCore.QRect(340, 40, 231, 121))
         self.figure2.setObjectName(_fromUtf8("figure2"))
         self.label = QtGui.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(430, 20, 111, 16))
         self.label.setObjectName(_fromUtf8("label"))
         self.figure1 = PlotWidget(self.centralwidget)
-        self.figure1.setGeometry(QtCore.QRect(60, 40, 261, 131))
+        self.figure1.setGeometry(QtCore.QRect(60, 40, 271, 121))
         self.figure1.setObjectName(_fromUtf8("figure1"))
         self.label_2 = QtGui.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(150, 20, 71, 16))
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.figure3 = ImageView(self.centralwidget)
-        self.figure3.setGeometry(QtCore.QRect(60, 210, 256, 192))
+        self.figure3.setGeometry(QtCore.QRect(150, 250, 311, 181))
         self.figure3.setObjectName(_fromUtf8("figure3"))
         self.label_3 = QtGui.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(170, 190, 71, 16))
+        self.label_3.setGeometry(QtCore.QRect(280, 230, 71, 16))
         self.label_3.setObjectName(_fromUtf8("label_3"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
