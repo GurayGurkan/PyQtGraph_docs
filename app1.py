@@ -19,10 +19,11 @@ class myApp(QMainWindow,gui_1.Ui_MainWindow):
         self.setupUi(self)
         
         self.figure1.setTitle("Figure 1 Title")
-        self.figure1.setRange(xRange=[0,199])
+        self.figure1.setRange(xRange=[0,69])
         self.figure1.setRange(yRange=[-1,1])
-        self.p1 = self.figure1.plot()
-        self.p1.setData(xdata=np.linspace(0,50,100))
+        self.p1 = self.figure1.plot(np.linspace(0,50,100),np.random.rand(100))
+        self.p1.setData(2*np.random.rand(100))
+        
         
         print "Figure 1 is a ", self.figure1.objectName()
         print "Figure 1's parent is ",self.figure1.parent().objectName()
