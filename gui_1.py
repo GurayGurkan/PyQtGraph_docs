@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'gui_1.ui'
 #
-# Created: Sat Jun 17 01:23:31 2017
+# Created: Mon Jun 19 22:24:38 2017
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,30 +26,24 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(587, 489)
+        MainWindow.resize(682, 354)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.figure2 = GraphicsView(self.centralwidget)
-        self.figure2.setGeometry(QtCore.QRect(340, 40, 231, 121))
+        self.figure2.setGeometry(QtCore.QRect(10, 20, 320, 280))
         self.figure2.setObjectName(_fromUtf8("figure2"))
-        self.label = QtGui.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(430, 20, 111, 16))
-        self.label.setObjectName(_fromUtf8("label"))
         self.figure1 = PlotWidget(self.centralwidget)
-        self.figure1.setGeometry(QtCore.QRect(60, 40, 271, 121))
+        self.figure1.setGeometry(QtCore.QRect(340, 20, 321, 151))
         self.figure1.setObjectName(_fromUtf8("figure1"))
-        self.label_2 = QtGui.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(150, 20, 71, 16))
-        self.label_2.setObjectName(_fromUtf8("label_2"))
-        self.figure3 = ImageView(self.centralwidget)
-        self.figure3.setGeometry(QtCore.QRect(150, 250, 311, 181))
-        self.figure3.setObjectName(_fromUtf8("figure3"))
-        self.label_3 = QtGui.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(280, 230, 71, 16))
-        self.label_3.setObjectName(_fromUtf8("label_3"))
+        self.buttonStart = QtGui.QPushButton(self.centralwidget)
+        self.buttonStart.setGeometry(QtCore.QRect(340, 180, 60, 25))
+        self.buttonStart.setObjectName(_fromUtf8("buttonStart"))
+        self.buttonStop = QtGui.QPushButton(self.centralwidget)
+        self.buttonStop.setGeometry(QtCore.QRect(340, 210, 60, 25))
+        self.buttonStop.setObjectName(_fromUtf8("buttonStop"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 587, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 682, 21))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtGui.QStatusBar(MainWindow)
@@ -61,11 +55,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
-        self.label.setText(_translate("MainWindow", "GraphicsView", None))
-        self.label_2.setText(_translate("MainWindow", "PlotWidget", None))
-        self.label_3.setText(_translate("MainWindow", "ImageView", None))
+        self.buttonStart.setText(_translate("MainWindow", "Start", None))
+        self.buttonStop.setText(_translate("MainWindow", "Stop", None))
 
-from pyqtgraph import ImageView, GraphicsView, PlotWidget
+from pyqtgraph import GraphicsView, PlotWidget
 
 if __name__ == "__main__":
     import sys
