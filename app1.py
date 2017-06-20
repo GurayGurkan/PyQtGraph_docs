@@ -20,13 +20,18 @@ class myApp(QMainWindow,gui_1.Ui_MainWindow):
         
        
         self.cam_image = pg.ImageItem()
-        self.cam_image.setScale(.5)
-        self.dummy = np.array(np.zeros((640,480,3),dtype='uint8'))
+        self.cam_image.setScale(1.7)
+        self.dummy = np.array(np.zeros((180,60,3),dtype='uint8'))
         #self.cam_image.setOpts(axisOrder='row-major')
         self.figure2.addItem(self.cam_image)
         
-        self.row = pg.PlotDataItem()
+        
+        self.row = pg.PlotDataItem(background='w')
+        
         self.figure1.addItem(self.row)
+        self.figure1.plotItem.setTitle('Spectrum')
+        self.figure1.plotItem.setLabels(bottom='Wavelength (nm)')
+        self.figure1.plotItem.setTitle('Spectrum')
         self.timer1 = QTimer()
         self.timer1.timeout.connect(self.updateImage)
         
@@ -42,12 +47,11 @@ class myApp(QMainWindow,gui_1.Ui_MainWindow):
             #self.vid_obj.set(5,-1)
             self.vid_obj.set(cv.CV_CAP_PROP_FRAME_WIDTH,640)
             self.vid_obj.set(cv.CV_CAP_PROP_FRAME_HEIGHT,480)
-            self.vid_obj.set(cv.CV_CAP_PROP_CONVERT_RGB,True)
-            self.vid_obj.set(cv.CV_CAP_PROP_EXPOSURE,-4.)
-            self.vid_obj.set(cv.CV_CAP_PROP_HUE,0)
+
+            
             self.vid_obj.set(17,5000.)
             
-            self.timer1.start(20)
+            self.timer1.start(30)
             self.cam_image.show()
             self.row.show()
     def stopCapture(self):
@@ -61,14 +65,18 @@ class myApp(QMainWindow,gui_1.Ui_MainWindow):
     def updateImage(self):
         t,fr =self.vid_obj.read()
         
+        fr = fr[210:270,140:320,:]
         
         if t:
-            self.dummy[:,:,2]=fr[:,:,0].T
-            self.dummy[:,:,1]=fr[:,:,1].T
-            self.dummy[:,:,0]=fr[:,:,2].T
+            self.dummy[:,:,2]=fr[:,:,0].T #B
+            self.dummy[:,:,1]=fr[:,:,1].T #G
+            self.dummy[:,:,0]=fr[:,:,2].T #R
             
+            gray = cvtColor(fr,COLOR_BGR2GRAY)
             self.cam_image.setImage(image=self.dummy,autolevels=False)
-            self.row.setData(np.sum(fr[240:280,:,0],0))
+            spectrum =np.sum(gray,0).astype('float')
+            spectrum_n = spectrum/np.max(spectrum)
+            self.row.setData(np.linspace(313,682,180),spectrum_n)
         
         
         
